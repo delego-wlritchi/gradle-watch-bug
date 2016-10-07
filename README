@@ -1,0 +1,24 @@
+This repository demonstrates an issue with Gradle continuous builds.
+
+In one terminal:
+
+$ ./gradlew classes -t
+Continuous build is an incubating feature.
+:compileJava UP-TO-DATE
+:inner
+:processResources UP-TO-DATE
+:classes
+
+BUILD SUCCESSFUL
+
+Total time: 1.649 secs
+
+Waiting for changes to input files of tasks... (ctrl-d to exit)
+
+
+
+In another:
+
+$ touch src/main/webapp/nested
+
+Gradle fails to notice the change, and does not rerun the inner task.

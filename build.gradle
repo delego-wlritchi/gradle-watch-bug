@@ -1,0 +1,10 @@
+apply plugin: 'war'
+
+task inner {
+    inputs.file 'toplevel'
+    inputs.dir 'src/main/webapp'
+
+    doLast {}
+}
+
+classes.dependsOn inner
